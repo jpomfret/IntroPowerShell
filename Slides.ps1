@@ -8,16 +8,16 @@ function Get-Slide {
 
     $slides = @{
         '1_Intro'    = "
-    /---------------------------------------------------\
-    | " + "$($color.orange)`u{fcf8}$($color.reset) " * 25 + "|
-    |                                                   |
-    |        A speedy Intro to PowerShell               |
-    |                                                   |
-    |        By                                         |
-    |          Jess Pomfret                             |
-    |          (She\Her)          $($color.orange)`u{f6ef}$($color.reset) jpomfret7@gmail.com |
-    |                             $($color.orange)`u{f099}$($color.reset) @jpomfret           |
-    \---------------------------------------------------/
+    /---------------------------------------------------------\
+    | " + "$($color.orange)`u{fcf8}$($color.reset) " * 28 + "|
+    |                                                         |
+    |        A speedy Intro to PowerShell                     |
+    |                                                         |
+    |        By                                               |
+    |          Jess Pomfret        $($color.orange)`u{f408}$($color.reset) jpomfret/IntroPowerShell |
+    |          (She\Her)           $($color.orange)`u{f6ef}$($color.reset) jpomfret7@gmail.com      |
+    |                              $($color.orange)`u{f099}$($color.reset) @jpomfret                |
+    \---------------------------------------------------------/
     "
         '2_What'     = '
     What Is PowerShell?
@@ -70,9 +70,11 @@ function Get-Slide {
     |         $($color.orange)`u{f44a}$($color.reset) Find-Module                             |
     |         $($color.orange)`u{f44a}$($color.reset) Get-Command                             |
     |         $($color.orange)`u{f44a}$($color.reset) Get-Help                                |
-    |                             $($color.orange)`u{f6ef}$($color.reset) jpomfret7@gmail.com |
-    |                             $($color.orange)`u{f099}$($color.reset) @jpomfret           |
+    |                        $($color.orange)`u{f408}$($color.reset) jpomfret/IntroPowerShell |
+    |                        $($color.orange)`u{f6ef}$($color.reset) jpomfret7@gmail.com      |
+    |                        $($color.orange)`u{f099}$($color.reset) @jpomfret                |
     \---------------------------------------------------/
+
     "
 
     }
