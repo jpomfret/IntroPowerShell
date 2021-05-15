@@ -56,7 +56,7 @@ function Get-Slide {
     - How long will it take to connect & check each one in SSMS?
 
     Get-Command -Name *backup*
-    Find-DbaCommand
+    Find-DbaCommand -Pattern *backup*
     Get-Help
     '
 
