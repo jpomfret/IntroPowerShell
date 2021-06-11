@@ -9,7 +9,7 @@ function Get-Slide {
     $slides = @{
         '1_Intro'    = "
     /---------------------------------------------------------\
-    | " + "$($color.orange)`u{fcf8}$($color.reset) " * 28 + "|
+    | " + "$($color.orange)`u{e706}$($color.reset) " * 28 + "|
     |                                                         |
     |        A speedy Intro to PowerShell                     |
     |                                                         |
