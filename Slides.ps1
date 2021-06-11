@@ -23,6 +23,7 @@ function Get-Slide {
     What Is PowerShell?
     --------------------------------------------------------------------
     PowerShell is a cross-platform task automation solution made up of:
+
     - command-line shell
     - scripting language
     - configuration management framework
@@ -62,7 +63,7 @@ function Get-Slide {
 
         '6_Summary'  = "
     /---------------------------------------------------\
-    | " + "$($color.orange)`u{fcf8}$($color.reset) " * 25 + "|
+    | " + "$($color.orange)`u{e706}$($color.reset) " * 25 + "|
     |                                                   |
     |        Thanks for joining me!                     |
     |                                                   |
