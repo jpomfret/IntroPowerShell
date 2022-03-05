@@ -1,36 +1,25 @@
 version: "3"
 services:
-    mssql1:
-      build: ./mssql1
+    dbatools1:
+      image: dbatools/sqlinstance
       volumes:
-        - mydata:/var/opt/backups
-        - sharedpath:/sharedpath
-      environment:
-          SA_PASSWORD: "Password1234!"
-          ACCEPT_EULA: "Y"
-          MSSQL_BACKUP_DIR: /var/opt/backups
-          TZ: Europe/London
-          MSSQL_AGENT_ENABLED: "True"
+        - shared:/shared
+
       ports:
         - "2500:1433"
       container_name: mssql1
       hostname: mssql1
-    mssql2:
-      build: ./mssql2
+      
+    dbatools2:
+      image: dbatools/sqlinstance2
       volumes:
-        - mydata:/var/opt/backups
-        - sharedpath:/sharedpath
-      environment:
-          SA_PASSWORD: "Password1234!"
-          ACCEPT_EULA: "Y"
-          MSSQL_BACKUP_DIR: /var/opt/backups
-          MSSQL_AGENT_ENABLED: "True"
-          TZ: Europe/London
+        - shared:/shared
+
       ports:
-          - "2600:1433"
+        - "2600:1433"
       container_name: mssql2
       hostname: mssql2
 
 volumes:
   mydata:
-  sharedpath:
+  shared:
