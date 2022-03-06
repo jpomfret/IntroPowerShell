@@ -52,7 +52,7 @@ function Get-Slide {
     Windows PowerShell Vs PowerShell
     --------------------------------------------------------------------
     - Windows PowerShell (5.1) - installed by default with Windows
-    - PowerShell (7.1) - Cross platform PowerShell with cool new features
+    - PowerShell (7.2) - Cross platform PowerShell with cool new features
 
     $PSVersionTable
 
@@ -83,7 +83,7 @@ function Get-Slide {
     - Start or Stop services with PowerShell
     
     Get-Service
-    Get-Service | Where Status -eq 'Running'
+    Get-Service | Where-Object Status -eq 'Running'
     Start-Service -Name Fax
     Stop-Service -Name Fax
     "
@@ -149,7 +149,7 @@ function Get-Slide {
     # Slide 9
     "
     /---------------------------------------------------\
-    | " + "$($color.orange)`u{e706}$($color.reset) " * 25 + "|
+    | " + "$($color.orange)`u{f796}$($color.reset) " * 25 + "|
     |                                                   |
     |        Thanks for joining me!                     |
     |                                                   |
@@ -164,8 +164,14 @@ function Get-Slide {
     "
     )
     cls
+    
+    # last slide popup feedback image
+    if ($slide -eq $slides.count-1) {
+        .\Demos\feedback.png
+    }
 
     return $slides[$slide]
+    
 }
 
 # Navigate forwared \ next

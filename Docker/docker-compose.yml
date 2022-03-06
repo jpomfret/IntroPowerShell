@@ -7,8 +7,8 @@ services:
 
       ports:
         - "2500:1433"
-      container_name: mssql1
-      hostname: mssql1
+      container_name: dbatools1
+      hostname: dbatools1
       
     dbatools2:
       image: dbatools/sqlinstance2
@@ -17,8 +17,8 @@ services:
 
       ports:
         - "2600:1433"
-      container_name: mssql2
-      hostname: mssql2
+      container_name: dbatools2
+      hostname: dbatools2
 
 volumes:
   mydata:
