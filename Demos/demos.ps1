@@ -5,8 +5,8 @@ Import-Module dbatools
 $securePassword = ('dbatools.IO' | ConvertTo-SecureString -AsPlainText -Force)
 $continercredential = New-Object System.Management.Automation.PSCredential('sqladmin', $securePassword)
 
-$mssql1 = Connect-DbaInstance -SqlInstance 'localhost,2500' -SqlCredential $continercredential
-$mssql2 = Connect-DbaInstance -SqlInstance 'localhost,2600' -SqlCredential $continercredential
+$mssql1 = Connect-DbaInstance -SqlInstance 'localhost,4433' -SqlCredential $continercredential
+$mssql2 = Connect-DbaInstance -SqlInstance 'localhost,4434' -SqlCredential $continercredential
 
 $Global:PSDefaultParameterValues = @{
     "*dba*:SqlCredential"            = $continercredential
@@ -19,6 +19,6 @@ $Global:PSDefaultParameterValues = @{
 
 
 # Take some backups
-$null = Backup-DbaDatabase -SqlInstance $mssql2 
+$null = Backup-DbaDatabase -SqlInstance $mssql2
 $null = Backup-DbaDatabase -SqlInstance $mssql2 -Type Diff
 $null = Backup-DbaDatabase -SqlInstance $mssql2 -Type Log

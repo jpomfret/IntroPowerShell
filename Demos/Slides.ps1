@@ -1,20 +1,17 @@
 Import-Module Pansies
 
-# dot source the pacman
-.  .\Demos\pacman.ps1
-
-# open edge so we can kill it later
-1..10 | % { Start-Process www.sqlbits.com }
+# run demo setup scripts
+.\Demos\demos.ps1
 
 # get rid of the test folder
 if((Test-Path .\Test)){
-    Remove-Item .\Test -Recurse -Force    
+    Remove-Item .\Test -Recurse -Force
 }
 
-# docker compose up some containers
-docker-compose -f .\Docker\docker-compose.yml up -d
+# docker compose up some containers - using dev container now
+# docker-compose -f .\Docker\docker-compose.yml up -d
 
-function Get-Slide {
+function Get-Slide {#
     param (
         # Parameter help description
         [Parameter()]
@@ -23,13 +20,13 @@ function Get-Slide {
     )
     write-host $slide
     $slides = @(
-    
+
     # Slide 0
     "
     /---------------------------------------------------------\
-    | " + "$($color.orange)`u{f796}$($color.reset) " * 28 + "|
+    | " + "$($color.orange)`u{f109}$($color.reset) " * 28 + "|
     |                                                         |
-    |        Intro to PowerShell                              |
+    |        Introduction to PowerShell & dbatools            |
     |                                                         |
     |        By                                               |
     |          Jess Pomfret        $($color.orange)`u{f408}$($color.reset) jpomfret/IntroPowerShell |
@@ -42,7 +39,7 @@ function Get-Slide {
     What Is PowerShell?
     --------------------------------------------------------------------
     PowerShell is a cross-platform task automation solution made up of:
-    
+
     - command-line shell
     - scripting language
     - configuration management framework
@@ -57,21 +54,39 @@ function Get-Slide {
     $PSVersionTable
 
     '
+
+    # Slide 3
+    '
+    Three commands to remember
+    --------------------------------------------------------------------
+    - If you remember nothing else, remember these!
+
+    Get-Command
+    Get-Help
+    Get-Member
+
+    Get-Command *Child*
+    Get-Help Get-ChildItem -Full
+
+    $file = Get-ChildItem
+
+    '
+
     # Slide 3
     '
     PowerShell Basics - File System
     --------------------------------------------------------------------
     - Objects not Strings
     - Piping output from commands
-    
+
     New-Item -Name Test -ItemType Directory
     New-Item -Name Test\UsefulFile.txt -ItemType File
 
-    Get-ChildItem 
+    Get-ChildItem
     Get-ChildItem -Filter *Useful*
     Get-ChildItem -Filter *Useful* -Recurse
     Get-ChildItem -Recurse -Include *.txt
-    Get-ChildItem -Path Tes* 
+    Get-ChildItem -Path Tes*
     Get-ChildItem -Path Tes* | Remove-Item
 
     '
@@ -81,7 +96,7 @@ function Get-Slide {
     --------------------------------------------------------------------
     - Use PowerShell to monitor background services
     - Start or Stop services with PowerShell
-    
+
     Get-Service
     Get-Service | Where-Object Status -eq 'Running'
     Start-Service -Name Fax
@@ -103,19 +118,19 @@ function Get-Slide {
     '
 
     # Slide 6
-    " 
+    "
     PowerShell Aliases
     --------------------------------------------------------------------
     - Alias = Alternative name
     - Helps bridge the gap between other shells and PowerShell
     - Don't use them in scripts!
-    
+
     Get-ChildItem
     dir
     ls
 
     Set-Location
-    cd 
+    cd
     chdir
 
     Get-Alias
@@ -164,14 +179,14 @@ function Get-Slide {
     "
     )
     cls
-    
+
     # last slide popup feedback image
-    if ($slide -eq $slides.count-1) {
-        .\Demos\feedback.png
-    }
+    #if ($slide -eq $slides.count-1) {
+    #    .\Demos\feedback.png
+    #}
 
     return $slides[$slide]
-    
+
 }
 
 # Navigate forwared \ next
@@ -181,10 +196,10 @@ function n {
         [int]$slideNumber
         )
         $global:SlideNum++
-        
+
         Get-Slide -Slide $slideNum
     }
-    
+
 # Navigate back \ previous
 function p {
     param (
@@ -192,9 +207,9 @@ function p {
         [int]$slideNumber
     )
     $global:SlideNum--
-    
+
     Get-Slide -Slide $slideNum
-    
+
 }
 
 # init slidenum and start the party
