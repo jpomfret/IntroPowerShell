@@ -3,18 +3,18 @@ Import-Module dbatools
 
 #region Set up connection
 $securePassword = ('dbatools.IO' | ConvertTo-SecureString -AsPlainText -Force)
-$continercredential = New-Object System.Management.Automation.PSCredential('sqladmin', $securePassword)
+$containerCredential = New-Object System.Management.Automation.PSCredential('sqladmin', $securePassword)
 
-$mssql1 = Connect-DbaInstance -SqlInstance 'localhost,4433' -SqlCredential $continercredential
-$mssql2 = Connect-DbaInstance -SqlInstance 'localhost,4434' -SqlCredential $continercredential
+$mssql1 = Connect-DbaInstance -SqlInstance 'localhost,4433' -SqlCredential $containerCredential
+$mssql2 = Connect-DbaInstance -SqlInstance 'localhost,4434' -SqlCredential $containerCredential
 
 $Global:PSDefaultParameterValues = @{
-    "*dba*:SqlCredential"            = $continercredential
-    "*dba*:SourceSqlCredential"      = $continercredential
-    "*dba*:DestinationSqlCredential" = $continercredential
-    "*dba*:DestinationCredential"    = $continercredential
-    "*dba*:PrimarySqlCredential"     = $continercredential
-    "*dba*:SecondarySqlCredential"   = $continercredential
+    "*dba*:SqlCredential"            = $containerCredential
+    "*dba*:SourceSqlCredential"      = $containerCredential
+    "*dba*:DestinationSqlCredential" = $containerCredential
+    "*dba*:DestinationCredential"    = $containerCredential
+    "*dba*:PrimarySqlCredential"     = $containerCredential
+    "*dba*:SecondarySqlCredential"   = $containerCredential
 }
 
 

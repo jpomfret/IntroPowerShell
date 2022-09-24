@@ -1,0 +1,6 @@
+"ComputerName","InstanceName","SqlInstance","Database","RecoveryModel","LastFullBackup","LastDiffBackup","LastLogBackup","SinceFull","SinceDiff","SinceLog","LastFullBackupIsCopyOnly","LastDiffBackupIsCopyOnly","LastLogBackupIsCopyOnly","DatabaseCreated","DaysSinceDbCreated","Status"
+"localhost","MSSQLSERVER","mssql1","master","Simple",,,,"738421.12:32:35","738421.12:32:35","738421.12:32:35",,,,"08/04/2003 09:13:36","7109","No Full or Diff Back Up in the last day"
+"localhost","MSSQLSERVER","mssql1","model","Full",,,,"738421.12:32:35","738421.12:32:35","738421.12:32:35",,,,"08/04/2003 09:13:36","7109","No Full or Diff Back Up in the last day"
+"localhost","MSSQLSERVER","mssql1","msdb","Simple",,,,"738421.12:32:35","738421.12:32:35","738421.12:32:35",,,,"12/01/2022 22:54:24","254","No Full or Diff Back Up in the last day"
+"localhost","MSSQLSERVER","mssql1","Northwind","Full","2021-11-20 12:41:02.000",,,"307.23:51:34","738421.12:32:35","738421.12:32:35","False",,,"27/04/2022 15:37:51","149","No Full or Diff Back Up in the last day"
+"localhost","MSSQLSERVER","mssql1","pubs","Full","2021-11-20 12:41:19.000",,,"307.23:51:17","738421.12:32:35","738421.12:32:35","False",,,"27/04/2022 15:37:52","149","No Full or Diff Back Up in the last day"
